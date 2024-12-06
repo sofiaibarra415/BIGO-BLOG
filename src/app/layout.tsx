@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-primary-500">
+      <body className="bg-grey-100">
         <div className="flex flex-col min-h-screen">
           <header className="bg-primary text-primary-foreground py-4">
             <div className="container mx-auto">

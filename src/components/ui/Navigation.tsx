@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function Navigation() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const handleLogoClick = () => {
     // Usamos scrollIntoView para desplazamiento suave
@@ -13,6 +14,23 @@ export default function Navigation() {
       block: "start", // Asegura que se desplace al inicio de la página
     });
   };
+
+  const handleClickOutside = (e: MouseEvent) => {
+    // Verifica si el clic fue fuera del menú desplegable
+    if (dropdownRef.current) {
+      setDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    // Añade el event listener cuando el componente se monta
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Limpia el event listener cuando el componente se desmonta
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50 p-4">
@@ -32,7 +50,7 @@ export default function Navigation() {
               Inicio
             </Link>
           </li>
-          <li className="relative">
+          <li className="relative" ref={dropdownRef}>
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="hover:text-primary-500 focus:outline-none"
