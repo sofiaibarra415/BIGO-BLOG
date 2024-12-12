@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import Image from 'next/image';
 
 export default function Navigation() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -30,7 +31,7 @@ export default function Navigation() {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50 p-4">
+    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50 px-4  p-2">
       <div className="flex justify-between items-center ">
         {/* Logo que desplaza hacia arriba */}
         <Link
@@ -38,7 +39,7 @@ export default function Navigation() {
           className="text-2xl font-bold text-primary-400 cursor-pointer scroll-smooth"
           onClick={handleLogoClick}
         >
-          PetBlog
+          <Image src="/logo_desc_violeta.png" alt="logo" width={65} height={65} ></Image>
         </Link>
 
         <ul className="flex space-x-9 pr-6 items-center">
