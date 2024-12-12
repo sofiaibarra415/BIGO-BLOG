@@ -5,7 +5,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
 export const Card: React.FC<CardProps> = ({ className = '', ...props }) => {
   return (
     <div
-      className={`rounded-lg border bg-card text-card-foreground shadow-sm flex flex-col items-center justify-center ${className}`}
+      className={`bg-card text-card-foreground flex flex-col items-center justify-center ${className}`}
       {...props}
     />
   )
