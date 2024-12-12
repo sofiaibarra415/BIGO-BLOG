@@ -7,7 +7,7 @@ export default function Home() {
   const router = useRouter();
   return (
     <main className="flex-grow p-5">
-      <section className="bg-muted p-16">
+      <section className="bg-muted p-16 pb-12">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl font-bold p-5 text-primary-900">Bienvenido a PetBlog</h1>
           <p className="text-xl mb-8 text-primary-900">

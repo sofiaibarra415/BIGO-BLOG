@@ -6,7 +6,7 @@ export default function ArticlePage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Article Title */}
-      <h1 className="text-3xl sm:text-4xl font-bold text-primary-900  mt-10 mb-6">
+      <h1 className="text-3xl sm:text-4xl font-bold text-primary-900  mt-16 mb-6">
         ¿Debo darle sobras de comida a mi perro?
       </h1>
 
