@@ -7,12 +7,9 @@ export default function Navigation() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const handleLogoClick = () => {
-    // Usamos scrollIntoView para desplazamiento suave
-    document.documentElement.scrollIntoView({
-      behavior: "smooth",
-      block: "start", // Asegura que se desplace al inicio de la página
-    });
+  const handleLogoClick = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleClickOutside = (e: MouseEvent) => {
@@ -34,11 +31,11 @@ export default function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50 p-4">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center ">
         {/* Logo que desplaza hacia arriba */}
         <Link
           href="/"
-          className="text-2xl font-bold text-primary-400 cursor-pointer"
+          className="text-2xl font-bold text-primary-400 cursor-pointer scroll-smooth"
           onClick={handleLogoClick}
         >
           PetBlog
