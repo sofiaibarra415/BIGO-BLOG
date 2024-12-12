@@ -13,7 +13,7 @@ export default function ArticlePage() {
       {/* Featured Image */}
       <div className="mb-6">
         <Image
-          src="https://i0.wp.com/blog.cuidamimascota.com/wp-content/uploads/2022/06/What-Human-Food-Can-Dogs-Eat-1021x580-1.jpg?w=1021&ssl=1"
+          src=""
           alt="Perro con dueño comparando comidas"
           width={1200}
           height={600}
@@ -48,7 +48,7 @@ export default function ArticlePage() {
         <div className="flex flex-wrap items-center justify-between p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
             <Image
-              src="https://i0.wp.com/blog.cuidamimascota.com/wp-content/uploads/2022/02/Artboard-3.jpg?resize=768%2C611&ssl=1"
+              src=""
               alt="Perro y gato"
               width={200}
               height={200}

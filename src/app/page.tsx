@@ -27,7 +27,7 @@ export default function Home() {
               Artículos Destacados
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
+              {[].map((i) => (
                 <Card
                   key={i}
                   className="bg-white cursor-pointer"
@@ -45,7 +45,7 @@ export default function Home() {
                     <div className="cursor-pointer transition-transform transform hover:scale-105">
                       <Image
                         src={
-                          "https://i0.wp.com/blog.cuidamimascota.com/wp-content/uploads/2020/01/35939-artboard-2.png?fit=320%2C248&ssl=1"
+                          ""
                         }
                         alt={`Mascota ${i}`}
                         width={400}

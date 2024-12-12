@@ -1,12 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'i0.wp.com',
+        hostname: 'cms.somosbigo.com',
       },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      }
     ],
   },
 };

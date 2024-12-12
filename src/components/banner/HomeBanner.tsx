@@ -1,49 +1,90 @@
-'use client'
-import Image from 'next/image'
-import Link from 'next/link'
+import { STRAPI_URL } from "@/constants/Strapi";
+import useGetContentClientSide from "@/hooks/cms/useGetContentClientSide";
+import useGetContentServerSide from "@/hooks/cms/useGetContentServerSide";
+import { BlogPost } from "@/types/banner.types";
+import Image from "next/image";
+import Link from "next/link";
 
 const recentArticles = [
   {
     category: "NUEVA MASCOTA",
     title: "Los mejores nombres para perros inspirados en el baile",
     image: "/perro_feliz.jpg",
-    url: "/articulos/nombres-perros-baile"
+    url: "/articulos/nombres-perros-baile",
   },
   {
     category: "NUEVA MASCOTA",
     title: "Los mejores nombres para razas de perros grandes",
     image: "/perro_feliz.jpg",
-    url: "/articulos/nombres-perros-grandes"
+    url: "/articulos/nombres-perros-grandes",
   },
   {
     category: "NUEVA MASCOTA",
     title: "Los mejores nombres españoles para perros",
     image: "/perro_feliz.jpg",
-    url: "/articulos/nombres-espanoles-perros"
+    url: "/articulos/nombres-espanoles-perros",
   },
   {
     category: "NUEVA MASCOTA",
     title: "Los mejores nombres para perros inspirados en el fútbol",
     image: "/perro_feliz.jpg",
-    url: "/articulos/nombres-perros-futbol"
-  }
-]
+    url: "/articulos/nombres-perros-futbol",
+  },
+];
 
 export default function HomeBanner() {
+  const { data, loading, error } = useGetContentClientSide({
+    path: "/blog",
+    query: "populate=*",
+  });
+  const BLOG_DATA: BlogPost = data;
+
+  if (loading) {
+    return (
+      <section className="relative md:min-w-[1000px] w-full">
+        <div className="container mx-auto px-4 py-12">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Skeleton para el contenido del blog */}
+            <div className="bg-gray-200 animate-pulse p-6 rounded-md">
+              <div className="h-12 w-3/4 bg-gray-300 rounded mb-6"></div>
+              <div className="h-6 w-2/3 bg-gray-300 rounded mb-10"></div>
+              <div className="w-full h-[400px] bg-gray-300 rounded-lg"></div>
+            </div>
+            {/* Skeleton para los artículos recientes */}
+            <div>
+              <div className="h-10 w-1/3 bg-gray-300 rounded mb-8"></div>
+              <div className="space-y-8">
+                {Array(4)
+                  .fill(0)
+                  .map((_, index) => (
+                    <div key={index} className="flex items-start space-x-6">
+                      <div className="w-40 h-28 bg-gray-300 rounded-md"></div>
+                      <div className="flex-1 space-y-4">
+                        <div className="h-4 w-1/2 bg-gray-300 rounded"></div>
+                        <div className="h-6 w-3/4 bg-gray-300 rounded"></div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="relative">
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className='bg-primary-500 p-4 rounded-md'>
+          <div className="bg-primary-500 p-4 rounded-md">
             <h1 className="text-5xl font-bold text-white mb-4">
-              Bienvenido al blog de SomosBigo
+              {BLOG_DATA.h1}
             </h1>
-            <p className="text-2xl text-white mb-8">
-              Tu fuente de información sobre el cuidado y bienestar de tus mascotas
-            </p>
+            <p className="text-2xl text-white mb-8">{BLOG_DATA.h2}</p>
             <Image
-              src="/perro_feliz.jpg"
-              alt="Perro feliz"
+              src={`${STRAPI_URL}${BLOG_DATA.big_image.url}`}
+              alt={BLOG_DATA.big_image.name}
               width={800}
               height={600}
               className="rounded-lg shadow-lg"
@@ -80,6 +121,5 @@ export default function HomeBanner() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
