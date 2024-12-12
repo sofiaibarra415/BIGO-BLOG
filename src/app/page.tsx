@@ -24,7 +24,7 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
-              <Card key={i} className="bg-white">
+              <Card key={i} className="bg-white cursor-pointer"  onClick={() => router.push(`/blog/${i}`)}>
                 <CardHeader>
                   <CardTitle className="text-primary-900">Cuidados esenciales para tu mascota</CardTitle>
                   <CardDescription>
@@ -34,7 +34,6 @@ export default function Home() {
                 <CardContent>
                   <div
                     className="cursor-pointer transition-transform transform hover:scale-105"
-                    onClick={() => router.push(`/blog/${i}`)}
                   >
                     <Image
                       src={

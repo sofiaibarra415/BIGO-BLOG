@@ -63,7 +63,7 @@ export default function ArticlePage() {
               </p>
             </div>
           </div>
-          <button className="bg-primary-600 w-full sm:w-40 text-white px-6 py-3 rounded-lg hover:bg-primary-400 transition-colors mt-4 sm:mt-0">
+          <button className="bg-primary-600 w-full sm:ml-56  sm:w-40 text-white px-6 py-3 rounded-lg hover:bg-primary-400 transition-colors mt-4 sm:mt-0">
             Ver más
           </button>
         </div>
