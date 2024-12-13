@@ -1,38 +1,11 @@
-import { STRAPI_URL } from "@/constants/Strapi";
+import { useApp } from "@/context/AppContext";
 import useGetContentClientSide from "@/hooks/cms/useGetContentClientSide";
-import useGetContentServerSide from "@/hooks/cms/useGetContentServerSide";
 import { BlogPost } from "@/types/banner.types";
 import Image from "next/image";
 import Link from "next/link";
 
-const recentArticles = [
-  {
-    category: "NUEVA MASCOTA",
-    title: "Los mejores nombres para perros inspirados en el baile",
-    image: "/perro_feliz.jpg",
-    url: "/articulos/nombres-perros-baile",
-  },
-  {
-    category: "NUEVA MASCOTA",
-    title: "Los mejores nombres para razas de perros grandes",
-    image: "/perro_feliz.jpg",
-    url: "/articulos/nombres-perros-grandes",
-  },
-  {
-    category: "NUEVA MASCOTA",
-    title: "Los mejores nombres españoles para perros",
-    image: "/perro_feliz.jpg",
-    url: "/articulos/nombres-espanoles-perros",
-  },
-  {
-    category: "NUEVA MASCOTA",
-    title: "Los mejores nombres para perros inspirados en el fútbol",
-    image: "/perro_feliz.jpg",
-    url: "/articulos/nombres-perros-futbol",
-  },
-];
-
 export default function HomeBanner() {
+  const { articles, loadingArticles } = useApp();
   const { data, loading, error } = useGetContentClientSide({
     path: "/blog",
     query: "populate=*",
@@ -83,23 +56,23 @@ export default function HomeBanner() {
             </h1>
             <p className="text-2xl text-white mb-8">{BLOG_DATA.h2}</p>
             <Image
-              src={`${STRAPI_URL}${BLOG_DATA.big_image.url}`}
+              src={BLOG_DATA.big_image.url}
               alt={BLOG_DATA.big_image.name}
               width={800}
               height={600}
               className="rounded-lg shadow-lg"
             />
           </div>
-          <div>
+          <div className="mb-auto">
             <h2 className="text-3xl font-bold text-primary-900 mb-6">
               Últimas historias
             </h2>
             <div className="space-y-6">
-              {recentArticles.map((article, index) => (
-                <Link key={index} href={article.url} className="block group">
+              {articles?.map((article, index) => (
+                <Link key={index} href={`/blog/${article.slug}`} className="block group">
                   <div className="flex items-start space-x-4">
                     <Image
-                      src={article.image}
+                      src={article.image.url}
                       alt={article.title}
                       width={150}
                       height={100}
@@ -107,7 +80,7 @@ export default function HomeBanner() {
                     />
                     <div>
                       <span className="text-sm font-semibold text-primary-500">
-                        {article.category}
+                        {article.blog_articulo_categoria.name}
                       </span>
                       <h3 className="text-lg font-semibold text-primary-900 group-hover:text-primary-500 transition-colors duration-200">
                         {article.title}

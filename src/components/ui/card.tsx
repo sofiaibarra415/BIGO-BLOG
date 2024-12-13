@@ -14,7 +14,7 @@ export const Card: React.FC<CardProps> = ({ className = '', ...props }) => {
 export const CardHeader: React.FC<CardProps> = ({ className = '', ...props }) => {
   return (
     <div
-      className={`flex flex-col space-y-1.5 p-6 ${className}`}
+      className={`flex flex-col space-y-1.5 p-6 w-full ${className}`}
       {...props}
     />
   )
@@ -23,7 +23,7 @@ export const CardHeader: React.FC<CardProps> = ({ className = '', ...props }) =>
 export const CardTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({ className = '', ...props }) => {
   return (
     <h3
-      className={`text-2xl font-semibold leading-none tracking-tight ${className}`}
+      className={`text-2xl font-semibold text-left leading-none tracking-tight ${className}`}
       {...props}
     />
   )
@@ -32,7 +32,7 @@ export const CardTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({ 
 export const CardDescription: React.FC<React.HTMLAttributes<HTMLParagraphElement>> = ({ className = '', ...props }) => {
   return (
     <p
-      className={`text-sm text-muted-foreground ${className}`}
+      className={`text-sm text-muted-foreground uppercase ${className}`}
       {...props}
     />
   )

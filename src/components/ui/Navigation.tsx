@@ -8,11 +8,6 @@ export default function Navigation() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const handleLogoClick = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handleClickOutside = (e: MouseEvent) => {
     // Verifica si el clic fue fuera del menú desplegable
     if (dropdownRef.current) {
@@ -37,7 +32,6 @@ export default function Navigation() {
         <Link
           href="/"
           className="text-2xl font-bold text-primary-400 cursor-pointer scroll-smooth"
-          onClick={handleLogoClick}
         >
           <Image src="/logo_desc_violeta.png" alt="logo" width={65} height={65} ></Image>
         </Link>
@@ -48,7 +42,7 @@ export default function Navigation() {
               Inicio
             </Link>
           </li>
-          <li className="relative" ref={dropdownRef}>
+          {/* <li className="relative" ref={dropdownRef}>
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="hover:text-primary-500 focus:outline-none"
@@ -86,7 +80,7 @@ export default function Navigation() {
                 </li>
               </ul>
             )}
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>

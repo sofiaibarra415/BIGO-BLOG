@@ -10,9 +10,11 @@ import {
 import { useRouter } from "next/navigation";
 import Metadata from "@/components/meta/Metadata";
 import HomeBanner from "@/components/banner/HomeBanner";
+import { useApp } from "@/context/AppContext";
 
 export default function Home() {
   const router = useRouter();
+  const { articles } = useApp();
   return (
     <>
       <Metadata
@@ -24,30 +26,28 @@ export default function Home() {
         <section className="py-10 pt-0">
           <div className="container mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center text-primary-900">
-              Artículos Destacados
+              Artículos
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[].map((i) => (
+              {articles?.map((a, i) => (
                 <Card
                   key={i}
                   className="bg-white cursor-pointer"
-                  onClick={() => router.push(`/blog/${i}`)}
+                  onClick={() => router.push(`/blog/${a.slug}`)}
                 >
                   <CardHeader>
                     <CardTitle className="text-primary-900">
-                      Cuidados esenciales para tu mascota
+                      {a.title}
                     </CardTitle>
                     <CardDescription>
-                      Consejos para mantener a tu compañero feliz y saludable
+                      {a.blog_articulo_categoria.name}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="cursor-pointer transition-transform transform hover:scale-105">
                       <Image
-                        src={
-                          ""
-                        }
-                        alt={`Mascota ${i}`}
+                        src={a.image.url}
+                        alt={a.image.name}
                         width={400}
                         height={200}
                         className="rounded-md"
@@ -73,7 +73,7 @@ export default function Home() {
               <input
                 type="email"
                 placeholder="Tu correo electrónico"
-                className="px-4 py-2 rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary"
+                className="px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <button className="rounded-r-md bg-primary-900 text-slate-200 px-4 py-2">
                 Suscribirse

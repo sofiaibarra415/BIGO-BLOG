@@ -1,3 +1,5 @@
+import { Image } from "./global.types";
+
 export interface BlogPost {
   id: number;
   documentId: string;
@@ -6,14 +8,5 @@ export interface BlogPost {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  big_image: BigImage;
-}
-
-export interface BigImage {
-  id: number;
-  name: string;
-  width: number;
-  height: number;
-  ext: string;
-  url: string;
+  big_image: Image;
 }

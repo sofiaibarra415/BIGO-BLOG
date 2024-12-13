@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cms.somosbigo.com',
+        hostname: 'strapi-somosbigo.s3.us-west-2.amazonaws.com',
       },
       {
         protocol: 'http',

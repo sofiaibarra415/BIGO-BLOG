@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
 import Navigation from "@/components/ui/Navigation"; // Componente cliente
+import Layout from "@/components/Layout";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,9 +23,9 @@ export default function RootLayout({
               <Navigation />
             </div>
           </header>
-          {children}
+          <Layout>{children}</Layout>
           <footer className="bg-white m--10 p-4 text-center text-gray-700">
-            <div className="container text-center">
+            <div className="container text-center mx-auto">
               <p>&copy; 2024 PetBlog. Todos los derechos reservados.</p>
             </div>
           </footer>
@@ -33,5 +34,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-

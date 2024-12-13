@@ -1,0 +1,77 @@
+.blocks-renderer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #111928;
+}
+
+.blocks-renderer h1,
+.blocks-renderer h2,
+.blocks-renderer h3,
+.blocks-renderer h4,
+.blocks-renderer h5,
+.blocks-renderer h6 {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.blocks-renderer p {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 300;
+  margin: 0;
+}
+
+.blocks-renderer ul {
+  padding-left: 20px;
+  list-style: disc;
+  margin: 0;
+}
+
+.blocks-renderer li {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.blocks-renderer a {
+  color: #007acc; /* Customize the color as needed */
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.blocks-renderer a:hover {
+  color: #005fa3;
+}
+
+.blocks-renderer em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.blocks-renderer strong {
+  font-weight: 700;
+}
+
+.blocks-renderer figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.blocks-renderer img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.blocks-renderer figcaption {
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+  font-style: italic;
+}
