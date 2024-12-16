@@ -10,7 +10,7 @@ import { useMemo } from "react";
 export default function ArticlePage() {
   const params = useParams();
   const querySlug = `filters[slug][$eq]=${params.tag}`;
-  const { data, loading, error } = useGetContentClientSide({
+  const { data, loading } = useGetContentClientSide({
     path: `/blog-articulos`,
     query: `${querySlug}&populate=banner_marketing.image&populate=image&populate=autor&populate=blog_articulo_categoria&populate=autor.image`,
   });

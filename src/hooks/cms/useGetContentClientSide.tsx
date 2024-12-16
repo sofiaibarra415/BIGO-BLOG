@@ -10,7 +10,7 @@ const useGetContentClientSide = ({ path, query }: UseGetContentProps) => {
   const url = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${path}${
     query ? `?${query}` : ""
   }`;
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<any>(null); // eslint-disable-line @typescript-eslint/no-explicit-any
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
 

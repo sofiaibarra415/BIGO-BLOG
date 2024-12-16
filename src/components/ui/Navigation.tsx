@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import {  useRef, useEffect } from "react";
 import Image from 'next/image';
 
 export default function Navigation() {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  //const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const handleClickOutside = (e: MouseEvent) => {
+  const handleClickOutside = () => {
     // Verifica si el clic fue fuera del menú desplegable
     if (dropdownRef.current) {
-      setDropdownOpen(false);
+      //setDropdownOpen(false);
     }
   };
 

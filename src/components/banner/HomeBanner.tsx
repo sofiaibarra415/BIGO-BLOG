@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function HomeBanner() {
-  const { articles, loadingArticles } = useApp();
-  const { data, loading, error } = useGetContentClientSide({
+  const { articles } = useApp();
+  const { data, loading } = useGetContentClientSide({
     path: "/blog",
     query: "populate=*",
   });
