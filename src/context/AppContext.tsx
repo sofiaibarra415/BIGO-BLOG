@@ -23,7 +23,7 @@ export const AppContextProvider: React.FC<AppContextProviderProps> = ({
     error: errorArticles,
   } = useGetContentClientSide({
     path: "/blog-articulos",
-    query: "populate=*&sort=createdAt:asc",
+    query: "populate=*&sort=createdAt:desc",
   });
   console.log(articles);
   const contextValue: AppContextType = {

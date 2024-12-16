@@ -68,8 +68,12 @@ export default function HomeBanner() {
               Últimas historias
             </h2>
             <div className="space-y-6">
-              {articles?.map((article, index) => (
-                <Link key={index} href={`/blog/${article.slug}`} className="block group">
+              {articles?.slice(0, 4).map((article, index) => (
+                <Link
+                  key={index}
+                  href={`/blog/${article.slug}`}
+                  className="block group"
+                >
                   <div className="flex items-start space-x-4">
                     <Image
                       src={article.image.url}

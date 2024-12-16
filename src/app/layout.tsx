@@ -25,7 +25,7 @@ export default function RootLayout({
           <Layout>{children}</Layout>
           <footer className="bg-white m--10 p-4 text-center text-gray-700">
             <div className="container text-center mx-auto">
-              <p>&copy; 2024 PetBlog. Todos los derechos reservados.</p>
+              <p>&copy; 2024 SomosBigo. Todos los derechos reservados.</p>
             </div>
           </footer>
         </div>
